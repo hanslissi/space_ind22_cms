@@ -21,19 +21,11 @@ export const projectType = defineType({
       },
     },
     {
-      title: 'Area',
+      title: 'Major',
       name: 'major',
-      type: 'string',
+      type: 'reference',
       validation: (rule) => rule.required(),
-      options: {
-        list: [
-          {title: '📰 Communication Design', value: 'communication-design'},
-          {title: '🚀 Interaction Design', value: 'interaction-design'},
-          {title: '🎬 Media Design', value: 'media-design'},
-        ],
-        layout: 'radio',
-      },
-      initialValue: 'communication-design',
+      to: [{type: 'major'}],
     },
     {
       title: 'Content',
