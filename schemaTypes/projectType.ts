@@ -9,13 +9,13 @@ export const projectType = defineType({
       title: 'Title',
       name: 'title',
       type: 'string',
-      validation: rule => rule.required()
+      validation: (rule) => rule.required(),
     },
     {
       title: 'Slug',
       name: 'slug',
       type: 'slug',
-      validation: rule => rule.required(),
+      validation: (rule) => rule.required(),
       options: {
         source: 'title',
       },
@@ -24,7 +24,7 @@ export const projectType = defineType({
       title: 'Area',
       name: 'major',
       type: 'string',
-      validation: rule => rule.required(),
+      validation: (rule) => rule.required(),
       options: {
         list: [
           {title: '📰 Communication Design', value: 'communication-design'},
@@ -33,13 +33,24 @@ export const projectType = defineType({
         ],
         layout: 'radio',
       },
-      initialValue: 'communication-design'
+      initialValue: 'communication-design',
     },
     {
       title: 'Content',
       name: 'content',
       type: 'array',
       of: [{type: 'block'}, {type: 'image'}, {type: 'vimeoUrl'}],
+    },
+    {
+      title: 'Contributors',
+      name: 'contributors',
+      type: 'array',
+      validation: (rule) => rule.required(),
+      of: [
+        {
+          type: 'string',
+        },
+      ],
     },
     {
       title: 'Thumbnail',
@@ -65,13 +76,13 @@ export const projectType = defineType({
           title: 'Meta Title',
           name: 'metaTitle',
           type: 'string',
-          validation: rule => rule.required().min(15).max(70)
+          validation: (rule) => rule.required().min(15).max(70),
         },
         {
           title: 'Meta Description',
           name: 'metaDescription',
           type: 'text',
-          validation: rule => rule.required().min(15).max(160)
+          validation: (rule) => rule.required().min(15).max(160),
         },
         {
           title: 'Social Image',
@@ -79,7 +90,7 @@ export const projectType = defineType({
           type: 'image',
           options: {
             hotspot: true,
-          }
+          },
         },
       ],
     },
