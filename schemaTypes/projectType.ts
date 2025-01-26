@@ -34,6 +34,12 @@ export const projectType = defineType({
       of: [{type: 'block'}, {type: 'image'}, {type: 'vimeoUrl'}],
     },
     {
+      title: 'Pictures',
+      name: 'pictures',
+      type: 'array',
+      of: [{type: 'image'}],
+    },
+    {
       title: 'Contributors',
       name: 'contributors',
       type: 'array',
